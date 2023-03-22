@@ -65,7 +65,7 @@ void call_fun(op_func, char *, char *, int, int);
 void popTop(stack_t **, unsigned int);
 void nop(stack_t **, unsigned int);
 void swapNodes(stack_t **, unsigned int);
-void add_nodes(stack_t **, unsigned int);
+void addNodes(stack_t **, unsigned int);
 void sub_nodes(stack_t **, unsigned int);
 void div_nodes(stack_t **, unsigned int);
 void mul_nodes(stack_t **, unsigned int);

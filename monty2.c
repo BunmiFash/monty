@@ -52,3 +52,34 @@ void swapNodes(stack_t **top, unsigned int line_number)
 	ptr->prev = NULL;
 	*top = ptr;
 }
+
+/**
+ * addNodes - Adds to node
+ * @top: Pointer
+ * @line_number: Int.
+ */
+void addNodes(stack_t **top, unsigned int line_number)
+{
+	int sum;
+
+	if (top == NULL || *top == NULL || (*top)->next == NULL)
+		more_error(8, line_number, "add");
+
+	(*top) = (*top)->next;
+	sum = (*top)->n + (*top)->prev->n;
+	(*top)->n = sum;
+	free((*top)->prev);
+	(*top)->prev = NULL;
+}
+
+
+/**
+ * nop - notching.
+ * @top: add
+ * @line_number: line
+ */
+void nop(stack_t **top, unsigned int line_number)
+{
+	(void)top;
+	(void)line_number;
+}

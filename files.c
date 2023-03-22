@@ -88,7 +88,9 @@ void find_func(char *opcode, char *value, int ln, int format)
 		{"pall", print},
 		{"pint",  printTopOfStack},
 		{"pop", popTop},
-		{"swap", swapNodes}
+		{"swap", swapNodes},
+		{"add", addNodes},
+		{"nop", nop}
 	};
 		/*{"nop", nop},
 		*{"swap", swapNodes},
