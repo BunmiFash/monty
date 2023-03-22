@@ -57,7 +57,7 @@ void free_nodes(void);
 void print(stack_t **, unsigned int);
 void add_begin(stack_t **, unsigned int);
 void add_end(stack_t **, unsigned int);
-void print_top_of_stack(stack_t **, unsigned int);
+void printTopOfStack(stack_t **, unsigned int);
 
 
 
