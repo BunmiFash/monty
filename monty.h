@@ -62,7 +62,7 @@ void printTopOfStack(stack_t **, unsigned int);
 
 
 void call_fun(op_func, char *, char *, int, int);
-void pop_top(stack_t **, unsigned int);
+void popTop(stack_t **, unsigned int);
 void nop(stack_t **, unsigned int);
 void swap_nodes(stack_t **, unsigned int);
 void add_nodes(stack_t **, unsigned int);

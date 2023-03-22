@@ -12,3 +12,22 @@ void printTopOfStack(stack_t **top, unsigned int line_number)
 	}
 	printf("%d\n", (*top)->n);
 }
+
+/**
+ * popTop - Deletes the first node
+ * @stack: Pointer
+ * @line_number: line
+ */
+void popTop(stack_t **stack, unsigned int line_number)
+{
+	stack_t *ptr;
+
+	if (stack == NULL || *stack == NULL)
+		more_error(7, line_number);
+
+	ptr = *stack;
+	*stack = ptr->next;
+	if (*stack != NULL)
+		(*stack)->prev = NULL;
+	free(ptr);
+}
