@@ -85,8 +85,9 @@ void find_func(char *opcode, char *value, int ln, int format)
 
 	instruction_t func_list[] = {
 		{"push", add_begin},
-		{"pall", print},
-		{"pint", print_top_of_stack},
+		{"pall", print}
+	};
+		/*{"pint", print_top_of_stack}
 		{"pop", pop_top},
 		{"nop", nop},
 		{"swap", swap_nodes},
@@ -99,8 +100,7 @@ void find_func(char *opcode, char *value, int ln, int format)
 		{"pstr", print_str},
 		{"rotl", rotl},
 		{"rotr", rotr},
-		{NULL, NULL}
-	};
+		{NULL, NULL}*/
 
 	if (opcode[0] == '#')
 		return;
