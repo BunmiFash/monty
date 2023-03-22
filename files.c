@@ -87,15 +87,16 @@ void find_func(char *opcode, char *value, int ln, int format)
 		{"push", add_begin},
 		{"pall", print},
 		{"pint",  printTopOfStack},
-		{"pop", popTop}
+		{"pop", popTop},
+		{"swap", swapNodes}
 	};
 		/*{"nop", nop},
-		*{"swap", swap_nodes},
-		*{"add", add_nodes},
-		*{"sub", sub_nodes},
-		*{"div", div_nodes},
-		*{"mul", mul_nodes},
-		*{"mod", mod_nodes},
+		*{"swap", swapNodes},
+		*{"add", addNodes},
+		*{"sub", subNodes},
+		*{"div", divNodes},
+		*{"mul", mulNodes},
+		*{"mod", modNodes},
 		*{"pchar", print_char},
 		*{"pstr", print_str},
 		*{"rotl", rotl},

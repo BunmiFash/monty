@@ -15,19 +15,40 @@ void printTopOfStack(stack_t **top, unsigned int line_number)
 
 /**
  * popTop - Deletes the first node
- * @stack: Pointer
+ * @top: Pointer
  * @line_number: line
  */
-void popTop(stack_t **stack, unsigned int line_number)
+void popTop(stack_t **top, unsigned int line_number)
 {
 	stack_t *ptr;
 
-	if (stack == NULL || *stack == NULL)
+	if (top == NULL || *top == NULL)
 		more_error(7, line_number);
 
-	ptr = *stack;
-	*stack = ptr->next;
-	if (*stack != NULL)
-		(*stack)->prev = NULL;
+	ptr = *top;
+	*top = ptr->next;
+	if (*top != NULL)
+		(*top)->prev = NULL;
 	free(ptr);
+}
+
+/**
+ * swapNodes - swap top
+ * @top: Pointer
+ * @line_number: Int.
+ */
+void swapNodes(stack_t **top, unsigned int line_number)
+{
+	stack_t *ptr;
+
+	if (top == NULL || *top == NULL || (*top)->next == NULL)
+		more_error(8, line_number, "swap");
+	ptr = (*top)->next;
+	(*top)->next = ptr->next;
+	if (ptr->next != NULL)
+		ptr->next->prev = *top;
+	ptr->next = *top;
+	(*top)->prev = ptr;
+	ptr->prev = NULL;
+	*top = ptr;
 }
