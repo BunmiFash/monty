@@ -1,5 +1,4 @@
 #include "monty.h"
-stack_t *top = NULL;
 /**
  * newNode - A function that creates a new node
  * @n: Data contained in the new node
