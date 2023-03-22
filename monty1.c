@@ -78,6 +78,8 @@ void add_end(stack_t **newNode, __attribute__((unused))unsigned  int ln)
  */
 void add_begin(stack_t **newNode, __attribute__((unused))unsigned int ln)
 {
+	stack_t *ptr;
+
 	if (newNode == NULL || *newNode == NULL)
 	{
 		exit(EXIT_FAILURE);
@@ -88,9 +90,10 @@ void add_begin(stack_t **newNode, __attribute__((unused))unsigned int ln)
 		top = *newNode;
 		return;
 	}
-	(*newNode)->next = top;
-	top->prev = *newNode;
+	ptr = top;
 	top = *newNode;
+	top->next = ptr;
+	ptr->prev = top;
 }
 /**
  * print - A function that prints the data of each node
