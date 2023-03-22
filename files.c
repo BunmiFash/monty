@@ -87,20 +87,22 @@ void find_func(char *opcode, char *value, int ln, int format)
 		{"push", add_begin},
 		{"pall", print}
 	};
-		/*{"pint", print_top_of_stack}
-		{"pop", pop_top},
-		{"nop", nop},
-		{"swap", swap_nodes},
-		{"add", add_nodes},
-		{"sub", sub_nodes},
-		{"div", div_nodes},
-		{"mul", mul_nodes},
-		{"mod", mod_nodes},
-		{"pchar", print_char},
-		{"pstr", print_str},
-		{"rotl", rotl},
-		{"rotr", rotr},
-		{NULL, NULL}*/
+	/*
+		*{"pint", print_top_of_stack}
+		*{"pop", pop_top},
+		*{"nop", nop},
+		*{"swap", swap_nodes},
+		*{"add", add_nodes},
+		*{"sub", sub_nodes},
+		*{"div", div_nodes},
+		*{"mul", mul_nodes},
+		*{"mod", mod_nodes},
+		*{"pchar", print_char},
+		*{"pstr", print_str},
+		*{"rotl", rotl},
+		*{"rotr", rotr},
+		*{NULL, NULL}
+		*/
 
 	if (opcode[0] == '#')
 		return;
