@@ -20,10 +20,9 @@
  */
 typedef struct stack_s
 {
-
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 
 } stack_t;
 
@@ -37,20 +36,20 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
 typedef void (*op_func)(stack_t **, unsigned int);
 
-// READ AND OPEN FILE
+/*READ AND OPEN FILE*/
 void open_file(char *file_name);
 int parse_line(char *buffer, int line_number, int format);
 void read_file(FILE *);
 int len_chars(FILE *);
 void find_func(char *, char *, int, int);
 
-// POINTER TO FIRST NODE
+/* POINTER TO FIRST NODE */
 extern stack_t *top;
 
 stack_t *newNode(int n);
@@ -76,7 +75,7 @@ void print_str(stack_t **, unsigned int);
 void rotl(stack_t **, unsigned int);
 void rotr(stack_t **, unsigned int);
 
-// ERROR FUNCTIONS
+/* ERROR FUNCTIONS */
 void error(int error_code, ...);
 void more_error(int error_code, ...);
 void string_error(int error_code, ...);
