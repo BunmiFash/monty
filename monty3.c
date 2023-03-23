@@ -1,40 +1,83 @@
 #include "monty.h"
 
 /**
- * mul_nodes - add to top.
- * @stack: Pointer
+ * mulNodes - Multiplies the top two nodes.
+ * @top: Pointer
  * @line_number: Int
  */
-void mul_nodes(__attribute__((unused))stack_t **stack,  __attribute__((unused))unsigned int line_number)
+void mulNodes(stack_t **top, unsigned int line_number)
 {
-	printf("etr");
+	int mul;
+
+	if (top == NULL || *top == NULL || (*top)->next == NULL)
+		more_error(8, line_number, "mul");
+
+	(*top) = (*top)->next;
+	mul = (*top)->n * (*top)->prev->n;
+	(*top)->n = mul;
+	free((*top)->prev);
+	(*top)->prev = NULL;
 }
 
 /**
- * mod_nodes - adds the top
- * @stack: Pointer
+ * modNodes - Finds the mod of the top two nodes
+ * @top: Pointer
  * @line_number: line
  */
-void mod_nodes(__attribute__((unused))stack_t **stack,  __attribute__((unused))unsigned int line_number)
+void modNodes(stack_t **top, unsigned int line_number)
 {
-	printf("lk");
+	int mod;
+
+	if (top == NULL || *top == NULL || (*top)->next == NULL)
+
+		more_error(8, line_number, "mod");
+
+
+	if ((*top)->n == 0)
+		more_error(9, line_number);
+	(*top) = (*top)->next;
+	mod = (*top)->n % (*top)->prev->n;
+	(*top)->n = mod;
+	free((*top)->prev);
+	(*top)->prev = NULL;
 }
 
 /**
  * print_char - print Ascii.
- * @stack: Pointer
+ * @top: Pointer
  * @line_number: ln
  */
-void print_char(__attribute__((unused))stack_t **stack,  __attribute__((unused))unsigned int line_number)
+void print_char(stack_t **top, unsigned int line_number)
 {
-	printf("h");
+	int ascii;
+
+	if (top == NULL || *top == NULL)
+		string_error(11, line_number);
+
+	ascii = (*top)->n;
+	if (ascii < 0 || ascii > 127)
+		string_error(10, line_number);
+	printf("%c\n", ascii);
 }
 /**
  * rotl - rotate stack
- * @stack: Pointer
+ * @top: Pointer
  * @ln: Int
  */
-void rotl(__attribute__((unused))stack_t **stack, __attribute__((unused))unsigned int ln)
+void rotl(stack_t **top, __attribute__((unused))unsigned int ln)
 {
-	printf("kj");
+	stack_t *ptr;
+
+	if (top == NULL || *top == NULL || (*top)->next == NULL)
+		return;
+
+	ptr = *top;
+	while (ptr->next != NULL)
+		ptr = ptr->next;
+
+	ptr->next = *top;
+	(*top)->prev = ptr;
+	*top = (*top)->next;
+	(*top)->prev->next = NULL;
+	(*top)->prev = NULL;
 }

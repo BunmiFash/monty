@@ -66,12 +66,12 @@ void popTop(stack_t **, unsigned int);
 void nop(stack_t **, unsigned int);
 void swapNodes(stack_t **, unsigned int);
 void addNodes(stack_t **, unsigned int);
-void sub_nodes(stack_t **, unsigned int);
-void div_nodes(stack_t **, unsigned int);
-void mul_nodes(stack_t **, unsigned int);
-void mod_nodes(stack_t **, unsigned int);
+void subNodes(stack_t **, unsigned int);
+void divNodes(stack_t **, unsigned int);
+void mulNodes(stack_t **, unsigned int);
+void modNodes(stack_t **, unsigned int);
 void print_char(stack_t **, unsigned int);
-void print_str(stack_t **, unsigned int);
+void print_string(stack_t **, unsigned int);
 void rotl(stack_t **, unsigned int);
 void rotr(stack_t **, unsigned int);
 
