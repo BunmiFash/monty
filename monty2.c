@@ -60,16 +60,28 @@ void swapNodes(stack_t **top, unsigned int line_number)
  */
 void addNodes(stack_t **top, unsigned int line_number)
 {
-	int sum;
+	stack_t *first, *sec;
+	int sum, x, y;
 
 	if (top == NULL || *top == NULL || (*top)->next == NULL)
 		more_error(8, line_number, "add");
 
-	(*top) = (*top)->next;
-	sum = (*top)->n + (*top)->prev->n;
+	/*
+	 * (*top) = (*top)->next;
+	*sum = (*top)->n + (*top)->prev->n;
+	*(*top)->n = sum;
+	*free((*top)->prev);
+	*(*top)->prev = NULL;
+	*/
+	first = *top;
+	sec = (*top)->next;
+	x = first->n;
+	y = sec->n;
+	sum = x + y;
+	*top = sec;
 	(*top)->n = sum;
-	free((*top)->prev);
-	(*top)->prev = NULL;
+	free(first);
+	first = NULL;
 }
 
 

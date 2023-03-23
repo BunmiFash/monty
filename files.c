@@ -12,7 +12,6 @@ void open_file(char *file_name)
 
 	if (file_name == NULL || fd == NULL)
 		error(2, file_name);
-
 	read_file(fd);
 	fclose(fd);
 }
@@ -54,7 +53,6 @@ int parse_line(char *buffer, int line_number, int format)
 
 	if (buffer == NULL)
 		error(4);
-
 	opcode = strtok(buffer, delim);
 	if (opcode == NULL)
 		return (format);
@@ -64,7 +62,6 @@ int parse_line(char *buffer, int line_number, int format)
 		return (0);
 	if (strcmp(opcode, "queue") == 0)
 		return (1);
-
 	find_func(opcode, value, line_number, format);
 	return (format);
 }
@@ -90,21 +87,19 @@ void find_func(char *opcode, char *value, int ln, int format)
 		{"pop", popTop},
 		{"swap", swapNodes},
 		{"add", addNodes},
-		{"nop", nop}
+		{"nop", nop},
+		{"swap", swapNodes},
+		{"add", addNodes},
+		{"sub", sub_nodes},
+		{"div", div_nodes},
+		{"mul", mul_nodes},
+		{"mod", mod_nodes},
+		{"pchar", print_char},
+		{"pstr", print_str},
+		{"rotl", rotl},
+		{"rotr", rotr},
+		{NULL, NULL}
 	};
-		/*{"nop", nop},
-		*{"swap", swapNodes},
-		*{"add", addNodes},
-		*{"sub", subNodes},
-		*{"div", divNodes},
-		*{"mul", mulNodes},
-		*{"mod", modNodes},
-		*{"pchar", print_char},
-		*{"pstr", print_str},
-		*{"rotl", rotl},
-		*{"rotr", rotr},
-		*{NULL, NULL}
-		*/
 
 	if (opcode[0] == '#')
 		return;
@@ -159,5 +154,7 @@ void call_fun(op_func func, char *op, char *val, int ln, int format)
 			add_end(&node, ln);
 	}
 	else
+	{
 		func(&top, ln);
+	}
 }
